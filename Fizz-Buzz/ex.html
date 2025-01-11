@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fizz Buzz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #4facfe;
+    }
+
+    input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #3582cc;
+    }
+
+    .output {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.5;
+      max-height: 150px;
+      overflow-y: auto;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fizz Buzz Game</h1>
+    <input class="js-number-input" type="number" placeholder="Enter a number">
+    <button onclick="fizzBuzz()">Play</button>
+    <div class="output js-output"></div>
+  </div>
+
+  <script>
+    function fizzBuzz() {
+      const n = document.querySelector('.js-number-input').value;
+      const outputDiv = document.querySelector('.js-output');
+      outputDiv.innerHTML = '';
+
+      if (n === '' || isNaN(n) || n <= 0) {
+        outputDiv.innerHTML = '<p>Please enter a positive number.</p>';
+        return;
+      }
+
+      for (let i = 1; i <= n; i++) {
+        if (i % 5 === 0 && i % 3 === 0) {
+          outputDiv.innerHTML += '<p>FizzBuzz</p>';
+        } else if (i % 3 === 0) {
+          outputDiv.innerHTML += '<p>Fizz</p>';
+        } else if (i % 5 === 0) {
+          outputDiv.innerHTML += '<p>Buzz</p>';
+        } else {
+          outputDiv.innerHTML += `<p>${i}</p>`;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
