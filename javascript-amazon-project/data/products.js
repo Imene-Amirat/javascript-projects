@@ -721,3 +721,8 @@ export const products = [
   return new Product(productDetails);
 });
 
+const o = {
+  method(){
+    console.log(this)
+  }
+}
