@@ -4,10 +4,22 @@ import {loadProducts, loadProductsFetch} from '../data/products.js';
 //import '../data/cart-class.js';
 //import '../data/backend-practice.js';
 
+// This is the same as the code below but we use async/await
+async function loadPage(){
+    await loadProductsFetch();
+
+    renderOrderSummary();
+    renderPaymentSummary();
+}
+
+loadPage();
+
+/* // This is the same as the code above but we use promises
 loadProductsFetch().then(() => {
     renderOrderSummary();
     renderPaymentSummary();
 });
+*/
 
 
 /* // This is the same as the code above but we use callback functions
