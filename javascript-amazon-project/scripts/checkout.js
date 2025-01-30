@@ -6,8 +6,14 @@ import {loadProducts, loadProductsFetch} from '../data/products.js';
 
 // This is the same as the code below but we use async/await
 async function loadPage(){
-    await loadProductsFetch();
-
+    try{
+        // throw new Error('Unexpected error, Please try again later.');
+        
+        await loadProductsFetch();
+    }
+    catch(error){
+        console.log('Unexpected error, Please try again later.');
+    }
     renderOrderSummary();
     renderPaymentSummary();
 }
